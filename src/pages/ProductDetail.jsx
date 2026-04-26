@@ -1,12 +1,13 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { ShoppingCart, Star, ArrowLeft } from 'lucide-react';
 import { useCart } from '../context/CartContext';
-import { products } from '../data/products';
+import { useProducts } from '../context/ProductsContext';
 
 export default function ProductDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { addToCart } = useCart();
+  const { products } = useProducts();
 
   const product = products.find(p => p.id === parseInt(id));
 

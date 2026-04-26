@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { Search, X } from 'lucide-react';
 import ProductCard from '../components/ProductCard';
-import { products, categories } from '../data/products';
+import { useProducts } from '../context/ProductsContext';
 
 export default function Products() {
+  const { products, categories } = useProducts();
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
+
 
   const filteredProducts = products.filter(product => {
     const matchesCategory = selectedCategory === 'All' || product.category === selectedCategory;

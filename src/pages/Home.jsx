@@ -2,10 +2,11 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Truck, Shield, Headphones, Mail, Send } from 'lucide-react';
 import ProductCard from '../components/ProductCard';
-import { products } from '../data/products';
+import { useProducts } from '../context/ProductsContext';
 import { useToast } from '../context/ToastContext';
 
 export default function Home() {
+  const { products } = useProducts();
   const featuredProducts = products.slice(0, 4);
   const { addToast } = useToast();
   const [newsletterEmail, setNewsletterEmail] = useState('');
