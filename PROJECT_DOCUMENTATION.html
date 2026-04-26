@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopHub - Project Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: #f5f7fa;
+        }
+
+        .doc-container {
+            background: #fff;
+            padding: 60px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #6b46c1;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #6b46c1;
+            padding-bottom: 20px;
+        }
+
+        h2 {
+            color: #4a5568;
+            font-size: 1.8rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #2d3748;
+            font-size: 1.3rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        code {
+            background: #f7fafc;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: #2d3748;
+            color: #f7fafc;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #6b46c1;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background: #f7fafc;
+        }
+
+        .feature-box {
+            background: linear-gradient(135deg, #6b46c1 0%, #9f7aea 100%);
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .feature-box h3 {
+            color: #fff;
+            margin-top: 0;
+        }
+
+        .tech-badge {
+            display: inline-block;
+            background: #6b46c1;
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 4px;
+        }
+
+        .file-tree {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9em;
+            line-height: 1.8;
+        }
+
+        @media print {
+            body {
+                background: #fff;
+                padding: 0;
+            }
+
+            .doc-container {
+                box-shadow: none;
+                padding: 40px;
+            }
+
+            a {
+                color: #2d3748;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="doc-container">
+        <h1>ShopHub - E-Commerce Application</h1>
+        <p><strong>Generated:</strong> April 15, 2026</p>
+
+        <h2>Project Overview</h2>
+        <p>ShopHub is a modern React-based e-commerce web application built with Vite, React Router, and Context API for state management. It provides a complete shopping experience with product browsing, search functionality, shopping cart, and wishlist features.</p>
+
+        <div class="feature-box">
+            <h3>Key Features</h3>
+            <ul>
+                <li><strong>Product Catalog</strong> - Browse products with category filtering</li>
+                <li><strong>Product Search</strong> - Real-time search by name or description</li>
+                <li><strong>Shopping Cart</strong> - Add/remove items with localStorage persistence</li>
+                <li><strong>Wishlist</strong> - Save favorite products for later purchase</li>
+                <li><strong>Toast Notifications</strong> - User feedback for all actions</li>
+                <li><strong>Newsletter Subscription</strong> - Email subscription form</li>
+                <li><strong>Contact Form</strong> - Customer support contact form</li>
+            </ul>
+        </div>
+
+        <h2>Tech Stack</h2>
+        <div>
+            <span class="tech-badge">React 19</span>
+            <span class="tech-badge">Vite 8</span>
+            <span class="tech-badge">React Router DOM 7</span>
+            <span class="tech-badge">Lucide React</span>
+            <span class="tech-badge">Context API</span>
+            <span class="tech-badge">CSS3</span>
+        </div>
+
+        <h2>Project Structure</h2>
+        <div class="file-tree">
+src/
+├── components/
+│   ├── Header.jsx          # Navigation header with cart/wishlist icons
+│   ├── ProductCard.jsx     # Reusable product card component
+│   └── CartItems.jsx       # Shopping cart items display
+├── context/
+│   ├── CartContext.jsx     # Shopping cart state management
+│   ├── WishlistContext.jsx # Wishlist state management (NEW)
+│   └── ToastContext.jsx    # Toast notification system (NEW)
+├── data/
+│   └── products.js         # Product data and categories
+├── pages/
+│   ├── Home.jsx            # Homepage with hero, features, products
+│   ├── Products.jsx        # All products with search and filters
+│   ├── ProductDetail.jsx   # Individual product page
+│   ├── Cart.jsx            # Shopping cart page
+│   └── Wishlist.jsx        # Wishlist page (NEW)
+├── App.jsx                 # Main app component with routing
+├── App.css                 # Application styles
+├── main.jsx                # Entry point
+└── index.css               # Global styles
+        </div>
+
+        <h2>Routes</h2>
+        <table>
+            <tr>
+                <th>Path</th>
+                <th>Component</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>/</td>
+                <td>Home</td>
+                <td>Homepage with featured products</td>
+            </tr>
+            <tr>
+                <td>/products</td>
+                <td>Products</td>
+                <td>Product catalog with search/filter</td>
+            </tr>
+            <tr>
+                <td>/product/:id</td>
+                <td>ProductDetail</td>
+                <td>Individual product details</td>
+            </tr>
+            <tr>
+                <td>/cart</td>
+                <td>Cart</td>
+                <td>Shopping cart</td>
+            </tr>
+            <tr>
+                <td>/wishlist</td>
+                <td>Wishlist</td>
+                <td>Saved items (NEW)</td>
+            </tr>
+        </table>
+
+        <h2>State Management</h2>
+
+        <h3>CartContext</h3>
+        <table>
+            <tr>
+                <th>Property/Method</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>items</td>
+                <td>Array of cart items</td>
+            </tr>
+            <tr>
+                <td>addToCart(product, quantity)</td>
+                <td>Add item to cart</td>
+            </tr>
+            <tr>
+                <td>removeFromCart(productId)</td>
+                <td>Remove item from cart</td>
+            </tr>
+            <tr>
+                <td>updateQuantity(productId, quantity)</td>
+                <td>Update item quantity</td>
+            </tr>
+            <tr>
+                <td>clearCart()</td>
+                <td>Empty the cart</td>
+            </tr>
+            <tr>
+                <td>totalItems</td>
+                <td>Total item count</td>
+            </tr>
+            <tr>
+                <td>totalPrice</td>
+                <td>Total price</td>
+            </tr>
+        </table>
+
+        <h3>WishlistContext (NEW)</h3>
+        <table>
+            <tr>
+                <th>Property/Method</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>items</td>
+                <td>Array of wishlist items</td>
+            </tr>
+            <tr>
+                <td>addToWishlist(product)</td>
+                <td>Add to wishlist</td>
+            </tr>
+            <tr>
+                <td>removeFromWishlist(productId)</td>
+                <td>Remove from wishlist</td>
+            </tr>
+            <tr>
+                <td>isInWishlist(productId)</td>
+                <td>Check if product is saved</td>
+            </tr>
+            <tr>
+                <td>totalItems</td>
+                <td>Total saved items</td>
+            </tr>
+        </table>
+
+        <h3>ToastContext (NEW)</h3>
+        <table>
+            <tr>
+                <th>Property/Method</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>addToast(message, type)</td>
+                <td>Show notification (success/error/info)</td>
+            </tr>
+        </table>
+
+        <h2>Development Commands</h2>
+        <pre><code>npm run dev      # Start development server (http://localhost:5173)
+npm run build    # Build for production
+npm run preview  # Preview production build
+npm run lint     # Run ESLint</code></pre>
+
+        <h2>Component Details</h2>
+
+        <h3>Header</h3>
+        <ul>
+            <li>Logo with link to home</li>
+            <li>Navigation links (Home, Products)</li>
+            <li>Wishlist icon with badge count</li>
+            <li>Cart icon with badge count</li>
+        </ul>
+
+        <h3>ProductCard</h3>
+        <ul>
+            <li>Product image</li>
+            <li>Category badge</li>
+            <li>Product name (linkable)</li>
+            <li>Star rating with review count</li>
+            <li>Price</li>
+            <li>Add to cart button with toast notification</li>
+            <li>Wishlist toggle button with toast notification</li>
+        </ul>
+
+        <h3>Home Page</h3>
+        <ul>
+            <li>Hero section with CTA button</li>
+            <li>Feature highlights (Shipping, Payment, Support)</li>
+            <li>Featured products grid (4 products)</li>
+            <li>Newsletter subscription form (NEW)</li>
+            <li>Contact form (NEW)</li>
+        </ul>
+
+        <h2>Color Scheme</h2>
+        <table>
+            <tr>
+                <th>Color</th>
+                <th>Hex Code</th>
+                <th>Usage</th>
+            </tr>
+            <tr>
+                <td>Primary Purple</td>
+                <td><code>#6b46c1</code></td>
+                <td>Primary buttons, links, branding</td>
+            </tr>
+            <tr>
+                <td>Light Purple</td>
+                <td><code>#9f7aea</code></td>
+                <td>Gradients, accents</td>
+            </tr>
+            <tr>
+                <td>Success Green</td>
+                <td><code>#48bb78</code></td>
+                <td>Success toasts, confirmations</td>
+            </tr>
+            <tr>
+                <td>Error Red</td>
+                <td><code>#f56565</code></td>
+                <td>Error toasts, warnings</td>
+            </tr>
+            <tr>
+                <td>Info Blue</td>
+                <td><code>#4299e1</code></td>
+                <td>Info toasts, notifications</td>
+            </tr>
+            <tr>
+                <td>Wishlist Red</td>
+                <td><code>#e53e3e</code></td>
+                <td>Wishlist buttons, badges</td>
+            </tr>
+        </table>
+
+        <h2>Responsive Design</h2>
+        <p>The application is fully responsive with a breakpoint at 768px:</p>
+        <ul>
+            <li>Mobile-friendly navigation (hidden on mobile)</li>
+            <li>Stacked product grids</li>
+            <li>Touch-friendly buttons (minimum 44px touch targets)</li>
+            <li>Adaptive layouts for all pages</li>
+            <li>Horizontal scrolling category filters on mobile</li>
+        </ul>
+
+        <h2>Data Persistence</h2>
+        <p>The following data is persisted in localStorage:</p>
+        <ul>
+            <li><code>cart</code> - Shopping cart items (JSON)</li>
+            <li><code>wishlist</code> - Saved wishlist items (JSON)</li>
+        </ul>
+
+        <h2>New Features Summary</h2>
+
+        <h3>1. Wishlist System</h3>
+        <p>Users can now save products to a wishlist for later purchase. The wishlist is accessible from the header icon and persists across sessions.</p>
+
+        <h3>2. Product Search</h3>
+        <p>Real-time search functionality filters products by name or description. Works in combination with category filters.</p>
+
+        <h3>3. Toast Notifications</h3>
+        <p>User feedback system that shows notifications for:
+        <ul>
+            <li>Adding products to cart</li>
+            <li>Adding/removing from wishlist</li>
+            <li>Newsletter subscription</li>
+            <li>Contact form submission</li>
+        </ul>
+        </p>
+
+        <h3>4. Newsletter Subscription</h3>
+        <p>Email subscription form on the homepage for marketing communications.</p>
+
+        <h3>5. Contact Form</h3>
+        <p>Customer support contact form with name, email, and message fields.</p>
+
+        <h2>Future Enhancements</h2>
+        <ul>
+            <li>User authentication and accounts</li>
+            <li>Checkout process with payment integration</li>
+            <li>Order history and tracking</li>
+            <li>Product reviews and ratings</li>
+            <li>Admin dashboard for product management</li>
+            <li>Product image gallery with zoom</li>
+            <li>Related products suggestions</li>
+            <li>Dark mode toggle</li>
+            <li>Shopping cart email notifications</li>
+            <li>Product comparison feature</li>
+        </ul>
+
+        <hr style="margin-top: 40px; border-top: 2px solid #6b46c1;">
+        <p style="text-align: center; color: #718096;">
+            <em>ShopHub E-Commerce Application - Documentation generated April 15, 2026</em>
+        </p>
+    </div>
+</body>
+</html>
