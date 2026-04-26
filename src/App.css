@@ -346,6 +346,21 @@
   color: #a0aec0;
 }
 
+.search-clear {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #a0aec0;
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+  flex-shrink: 0;
+}
+
+.search-clear:hover {
+  color: #4a5568;
+}
+
 /* Product Detail */
 .product-detail {
   max-width: 1000px;

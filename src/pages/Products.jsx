@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Search } from 'lucide-react';
+import { Search, X } from 'lucide-react';
 import ProductCard from '../components/ProductCard';
 import { products, categories } from '../data/products';
 
@@ -46,6 +46,11 @@ export default function Products() {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="search-input"
               />
+              {searchQuery && (
+                <button className="search-clear" onClick={() => setSearchQuery('')}>
+                  <X size={16} />
+                </button>
+              )}
             </div>
             <p className="results-count">{filteredProducts.length} products found</p>
           </div>
